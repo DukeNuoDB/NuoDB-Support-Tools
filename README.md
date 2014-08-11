@@ -55,14 +55,4 @@ WARNING:
 NODELIST:
 #Lists all of the Local and Remot node messages, in order. Useful for creating a timeline of when TEs and SMs joined and left the database.
 ```
-
-----------
-#### migrate_scripts.zip
-
-### Summary:
-    script to migrate a NuoDB or non-NuoDB database to a NuoDB database.
-    Unzip to a directory
-    Edit the env file for the correct env you are running (see read_me.txt file)
-    run the migrate script (shell or bat), passing the correct parameter (see the read_me.txt file)
-
 ----------
