@@ -7,6 +7,7 @@ Why cheetah? Because it's faster than doing it manually (hopefully).
 #### DETAILS
 
 - Tested using Python 2.7.5
+- Collections module
 - Was created with the intention of making Agent and Agent_Error log files easier to parse.
 
 #### USAGE:
