@@ -3,7 +3,7 @@ from collections import OrderedDict
 
 # Find and catalog each log line that matches these strings
 match_strings = ["Assertion", "error", "failed", "INFO", "WARN", "SEVERE","Local node", "Remote Node",
-"Starting NuoDB agent","minorty partition","heartbeat expired"]
+"Starting NuoDB agent","minorty partition","heartbeat expired","exit code", "Database is inactive"]
 # Don't print out every line that contains these strings, instead trucnate to the last N lines
 summarize = ["INFO", "WARN", "failed"]
 summarize_length = 10
