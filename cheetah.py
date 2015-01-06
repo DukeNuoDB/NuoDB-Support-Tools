@@ -2,12 +2,12 @@ from sys import argv
 from collections import OrderedDict
 
 # Find and catalog each log line that matches these strings
-match_strings = ["Assertion", "error", "failed", "INFO", "WARN", "SEVERE","Local node", "Remote Node",
-"Starting NuoDB agent","minorty partition","heartbeat expired","exit code", "Database is inactive", "Starting NuoDB agent",
-"enableAutomation","Node joined", "Node left","evict", "DIED"]
+match_strings = ["NuoAgent version","Assertion", "error", "failed", "INFO", "WARN", "SEVERE","Local node","Remote Node",
+"minorty partition","heartbeat expired", "evict", "DIED","exit code", "Database is inactive",
+"Node joined", "Node left"]
 # Don't print out every line that contains these strings, instead trucnate to the last N lines
 summarize = ["error","INFO", "WARN", "failed"]
-summarize_length = 10
+summarize_length = 5
 
 if len(argv) > 1:
 	files = argv[1:]
@@ -32,16 +32,16 @@ for filename in files:
 					matches[string].append('Line %03d: %s' % (i,s,))
 		
 		# There are always more INFO and WARN messages than are usable.
-		# This returns the 10 most recent messages for each.
+		# This returns the  most recent messages for each.
 		for item in summarize:
 			matches["%s (last %d lines)" % (item, summarize_length)] = matches[item][(summarize_length * -1):]
 		
 
-		nodemerge = matches['Local node'] + matches['Remote Node']
-		nodemerge.sort()
+		nodemerge = matches['Node joined'] + matches['Node left']
+		#nodemerge.sort()
 		matches['nodes'] = nodemerge
-		del matches['Local node']
-		del matches['Remote Node']
+		del matches['Node joined']
+		del matches['Node left']
 	print
 	print "======================================"
 	print "==Printing Analysis..."
@@ -63,5 +63,6 @@ for filename in files:
 			if len(matches[string]) > 0:
 				print '\n'.join([str(myelement) for myelement in matches[string]])
 			else:
-				print "\n No %s entries in the log" % string.upper()
+				#print "No %s entries in the log" % string.upper()
+				print "0 entries in the log."
 			print
