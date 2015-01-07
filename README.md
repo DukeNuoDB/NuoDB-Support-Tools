@@ -1,6 +1,6 @@
 #### SUMMARY
 
-cheetah.py was created to help facilitate the debugging of customer issues by parsing the Agent and Agent Error logs. Rather than searching piecemeal through the log files cheetah should privide you with compartmentalized lists of important items. 
+cheetah.py was created to help facilitate the parsing of Agent and Agent Error logs. Rather than searching piecemeal through the log files cheetah should privide you with compartmentalized lists of important items. 
 
 Why cheetah? Because it's faster than parsing the log files manually.
 
